@@ -22,7 +22,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          uv pip install maturin --system
           uv pip install -r requirements.txt --system
 
       - name: Run data split
