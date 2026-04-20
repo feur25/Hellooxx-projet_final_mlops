@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+mlruns/
+models/
+data/train.csv
+data/val.csv
+data/test.csv
+data/incoming/processed/
+data/*_backup_*.csv
+target/
+*.whl
+*.so
+*.dll
+*.pyd

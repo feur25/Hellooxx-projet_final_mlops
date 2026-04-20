@@ -1,0 +1,49 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: |
+          uv pip install maturin --system
+          uv pip install -r requirements.txt --system
+
+      - name: Run data split
+        run: python scripts/split_data.py
+
+      - name: Run training pipeline
+        run: python scripts/run_training.py
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t diabetes-prediction-api .
+
+      - name: Run container
+        run: |
+          docker run -d --name diabetes-api -p 8000:8000 diabetes-prediction-api
+          sleep 10
+          curl -f http://localhost:8000/health || exit 1
+          docker stop diabetes-api
