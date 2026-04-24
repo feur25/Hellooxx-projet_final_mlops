@@ -159,4 +159,4 @@ cp data/val.csv data/incoming/new_data.csv
 python scripts/run_retrain.py
 ```
 
-Je retiens une chose bah c'est pas avec moi, que vous serez sur si vous avez le diabète ou pas :D
+Je retiens une chose bah c'est pas avec moi, que vous serez sûr, si vous avez le diabète ou pas :D
