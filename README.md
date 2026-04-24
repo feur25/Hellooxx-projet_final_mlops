@@ -4,7 +4,7 @@ Prédiction du diabète (dataset Pima Indians) avec une pipeline MLOps complète
 PS : la predict et bancale, mais reste correcte je ne me suis guère attarder dessus
 
 
-Partie claude lore explication, de l'archi, car en vrai il explique pas trop mal je trouve, et fait énormément moins de faute que moins en français, plus pratique pour ne pas finire, avec les yeux ensanglanter :
+Partie claude lore explication, de l'archi, car en vrai il explique pas trop mal je trouve, et fait énormément moins de faute que moi, en français, plus pratique pour ne pas finire, avec les yeux ensanglanter :
 
 ---
 
