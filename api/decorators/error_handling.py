@@ -5,7 +5,6 @@ from fastapi import HTTPException
 
 logger = logging.getLogger("api.errors")
 
-
 def _translate(exc: Exception) -> HTTPException:
     if isinstance(exc, HTTPException):
         return exc
@@ -17,7 +16,6 @@ def _translate(exc: Exception) -> HTTPException:
         return HTTPException(status_code=422, detail=f"Missing key: {exc}")
     logger.exception("unhandled error")
     return HTTPException(status_code=500, detail=f"{type(exc).__name__}: {exc}")
-
 
 def handle_errors(func):
     if asyncio.iscoroutinefunction(func):

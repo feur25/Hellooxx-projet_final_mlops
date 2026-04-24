@@ -8,7 +8,6 @@ from src.retrain import RetrainPipeline
 
 router = APIRouter(prefix="/retrain", tags=["lifecycle"])
 
-
 @router.post(
     "",
     response_model=RetrainResponse,

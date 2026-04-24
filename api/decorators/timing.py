@@ -4,7 +4,6 @@ from functools import wraps
 
 logger = logging.getLogger("api.timing")
 
-
 def timed(label: str = ""):
     def decorator(func):
         name = label or func.__name__
